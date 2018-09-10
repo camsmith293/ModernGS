@@ -1,0 +1,14 @@
+#version 130
+
+//Multicolor attribute
+in vec4 multiColor;
+
+//Final color
+out vec4 LFragment;
+
+void main()
+{
+    //Set fragment
+    LFragment = multiColor;
+}
+

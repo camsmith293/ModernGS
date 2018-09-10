@@ -1,0 +1,22 @@
+#version 130
+
+//Transformation Matrices
+uniform mat4 ProjectionMatrix;
+uniform mat4 ModelViewMatrix;
+
+//Vertex position attribute
+in vec3 VertexPos3D;
+
+//Multicolor attribute
+in vec4 MultiColor1;
+in vec4 MultiColor2;
+out vec4 multiColor;
+
+void main()
+{
+    //Process color
+    multiColor = MultiColor1 * MultiColor2;
+
+    //Process vertex
+    gl_Position = ProjectionMatrix * ModelViewMatrix * vec4( VertexPos3D.x, VertexPos3D.y, VertexPos3D.z, 1.0 );
+}
